@@ -1,0 +1,59 @@
+html,body{
+    background-color: #f8f8ff;
+    height: 100%;
+}
+
+.clear{
+    clear:both;
+}
+
+.espacamento{
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+header{
+    width: 100%;
+    background-color: blue;
+    padding: 25px 0;
+}
+
+nav.menu-header{
+    font-size: 20px;
+    text-align: right;
+    z-index: 1;
+}
+
+section.barra-lateral{
+    height: 100vh;
+    text-align: left;
+    float: left;
+    background-color: red;
+    width: 15%;
+    z-index: 2;
+}
+
+.centro{
+    background-color: lime;
+    float: left;
+    width: 85%;
+}
+
+.barra-central{
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+.caixa-gerenciamento{
+    width: 50%;
+    float: left;
+    background-color: yellow;
+}
+
+.caixa-suporte{
+    width: 50%;
+    float: left;
+    background-color: blueviolet;
+}
