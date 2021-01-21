@@ -17,7 +17,10 @@ nav.menu-header{
     font-weight: 600;
     padding-right: 20px;
 }
-
+input#pesquisa{
+    float: left;
+    margin-left: 8px;
+}
 nav.menu-header a{
     padding: 0 10px;
     color: #ffffff;

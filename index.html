@@ -13,8 +13,8 @@
 
     <section class="barra-lateral">
 
-        <div class="logo">
-            <img src="imagens/logo.png" width="223" height="87">
+        <div class="logo" onclick="logoClique()" style="cursor: pointer;">
+            <img src="imagens/logo.png" height="100%" width="100%">
         </div>
 
 
@@ -50,6 +50,7 @@
     <div class="centro">
 
         <nav class="menu-header">
+            <input type="text" id="pesquisa" placeholder="buscar">
             <a href=""><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Logoff</a>
             <a href=""><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Meus dados</a>
             <a href="">Administrador</a>
@@ -177,6 +178,6 @@
         </nav>
 
     </div>
-
+    <script src="JS/scripts.js"></script>
 </body>
 </html>
