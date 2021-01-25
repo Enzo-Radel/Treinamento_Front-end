@@ -20,95 +20,50 @@
 
         <div class="menu-lateral">
             <h4>USUÁRIOS</h4>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Administradores</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Clientes</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Dids</li>
+            <li id="abre-modal" class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Administradores</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Clientes</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Dids</li>
         </div>
 
         <div class="menu-lateral">
             <h4>CONFIGURAÇÕES</h4>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Firewall</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Configurações</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Template</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>E-mail</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Cargos</li>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Integração</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Firewall</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Configurações</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Template</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>E-mail</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Cargos</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Integração</li>
         </div>
 
         <div class="menu-lateral">
             <h4>AJUDA</h4>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Ajuda</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Ajuda</li>
         </div>
 
         <div class="menu-lateral">
             <h4>AUDITORIA</h4>
-            <li><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Auditoria</li>
+            <li class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 10px;"></i>Auditoria</li>
         </div>
 
     </section> <!-- barra-lateral -->
 
     <div class="centro">
 
-        <nav class="menu-header">
-            <input type="text" id="pesquisa" placeholder="buscar">
-            <a href=""><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Logoff</a>
-            <a href=""><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Meus dados</a>
-            <a href="">Administrador</a>
+        <nav id="menu-header" class="menu-header text-right" >
+            <div class="element-left pesquisa" id="pesquisa" style="display:inline-block;">
+                <input type="text" placeholder="buscar">
+            </div>
+            <a href="" class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Logoff</a>
+            <a href="" class="sublinhar"><i class="bi bi-hand-thumbs-up" style="padding-right: 5px;"></i>Meus dados</a>
+            <a href="" class="sublinhar">Administrador</a>
         </nav> <!-- menu-header -->
         
 
-        <div class="barra-central">
+        <div class="barra-central fundo-azul" id="barra-central">
             <h3>Pabx Virtual</h3>
         </div>
-       
 
-        <div class="caixa-gerenciamento">
-            <h3>Painel de Gerenciamento do Pabx</h3>
-
-            <h4>Recursos do PABX</h4>
-
-            <div class="lista-primaria">
-                <li>Transferência entre ramais</li>
-                <li>Encaminhamento de Chamadas</li>
-                <div class="lista-secundaria">
-                    <li>Para outros ramais</li>
-                    <li>Para correio de voz</li>
-                    <li>Para número externo</li>
-                </div>
-                <li>Conferência</li>
-                <li>URA</li>
-                <li>Fila de Atendimento</li>
-                <li>Regra de horário</li>
-                <li style="padding-bottom: 40px;">Roteamento baseado em número entrante</li>
-            </div>
-
-        </div>
-
-
-        <div class="caixa-suporte">
-            <h3>Suporte Técnico</h3>
-
-            <h4>Contatos</h4>
-
-            <div class="lista-primaria">
-                <li>Telefones</li>
-                <div class="lista-secundaria">
-                    <li>(99)99999-9999</li>
-                    <li>(99)99999-9999</li>
-                </div>
-                <li>Emergência</li>
-                <div class="lista-secundaria">
-                    <li>(99)99999-9999</li>
-                    <li>(99)99999-9999</li>
-                </div>
-                <li>Abertura de Chamados</li>
-                <div class="lista-secundaria">
-                    <li style="padding-bottom: 40px;"><a href="" style="text-decoration: none; color: #6495ed; ">brdticket.brdsoft.com.br</a></li>
-                </div>
-            </div>
-
-        </div>
-        <div class="clear"></div>
+        <div class="image-box" id="image-box"></div>
 
         <div class="dados">
 
@@ -172,11 +127,25 @@
         </div>
 
         <nav class="menu-footer">
-            <a href="">Home</a>
-            <a href="">Meus Dados</a>
-            <a href="">Logoff</a>
+            <a href="" class="sublinhar">Home</a>
+            <a href="" class="sublinhar">Meus Dados</a>
+            <a href="" class="sublinhar">Logoff</a>
         </nav>
 
+    </div>
+    <div id="modal-container" class="modal-container">
+        <div class="modal-conteudo">
+            <button id= "btn-fechar" class="btn-fechar">X</button>
+            <h1 class="titulo-modal">Primeiro Modal</h1>
+            <h2 class="subtitulo-modal">Subtitulo</h2>
+            <p class="texto-modal">Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit. Nulla blandit egestas 
+            convallis. Aenean finibus massa cursus turpis sagittis consectetur. 
+            Praesent dapibus risus vitae odio tincidunt, 
+            laoreet vulputate lacus blandit. Pellentesque nisi felis, 
+            dignissim eget tortor quis, viverra tincidunt turpis. 
+            Vivamus a enim in risus semper ultricies vel non nisi. Suspendisse.</p>                                         
+        </div>
     </div>
     <script src="JS/scripts.js"></script>
 </body>
