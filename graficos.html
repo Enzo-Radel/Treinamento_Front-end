@@ -8,13 +8,41 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
-    <header class="barra-lateral">
-        
-    </header>
-    <canvas id="volumeDeChamadas"></canvas>
-    <canvas id="ramais" style="width: 11px; height: 2px;"></canvas>
+    <canvas id="volumeDeChamadas" style="width: 11px; height: 3px;"></canvas>
+    <!-- <canvas id="ramais" style="width: 11px; height: 2px;"></canvas>
     <canvas id="filaDeAtendimento" style="width: 11px; height: 2px;"></canvas>
-    <canvas id="uras" style="width: 11px; height: 2px;"></canvas>
+    <canvas id="uras" style="width: 11px; height: 2px;"></canvas> -->
+
+    <div class="trocar-listas">
+
+        <div class="caixa-esquerda" id="caixa-esquerda">
+            <select name="selectFrom" id="select-from" size="5" multiple="multiple">
+                <option value="1">usuario 1</option>
+                <option value="2">usuario 2</option>
+                <option value="3">usuario 3</option>
+                <option value="4">usuario 4</option>
+                <option value="5">usuario 5</option>
+                <option value="6">usuario 6</option>
+                <option value="7">usuario 7</option>
+                <option value="8">usuario 8</option>
+                <option value="9">usuario 9</option>
+                <option value="10">usuario 10</option>
+            </select>
+        </div>
+
+        <div class="botoes" id="botoes">
+            <button id="direita" class="direita">Para direita</button>
+            <button id="esquerda" class="esquerda">Para esquerda</button>
+            <button id="cima" class="cima">Para cima</button>
+            <button id="baixo" class="baixo">Para baixo</button>
+        </div>
+
+        <div class="caixa-direita" id="caixa-direita">
+            <select name="selectTo" id="select-to" size="5" multiple="multiple"></select>
+        </div>
+
+    </div>
+
     <script src="JS/graficos.js"></script>
 </body>
 </html>
