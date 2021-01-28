@@ -72,31 +72,35 @@ botoes.addEventListener("click",(e) => {
             numOpcoes = listaDireita.querySelectorAll("option")
             for(cont=0;cont<numOpcoes.length;cont++){
                 opcao = numOpcoes[cont]
-                if (opcao.selected) {
-                    if (cont>0){
-                        valor = opcao.value
-                        texto = opcao.text
-                        newPos = cont-1
-                        intermediario = document.createElement("option")
-                        intermediario = numOpcoes[cont]
-                        numOpcoes[newPos].before(intermediario)
-                    }
+                newPos = cont-1
+                if (opcao.selected && cont>0 && numOpcoes[newPos].selected==false) {
+                    valor = opcao.value
+                    texto = opcao.text
+                    intermediario = document.createElement("option")
+                    intermediario.innerHTML = opcao.innerHTML
+                    intermediario.value = opcao.value
+                    intermediario.selected = true
+                    numOpcoes[newPos].before(intermediario)
+                    opcao.remove()
+                    numOpcoes = listaDireita.querySelectorAll("option")
                 }
             }
             break;
         case "baixo":
             numOpcoes = listaDireita.querySelectorAll("option")
-            for(cont=0;cont<numOpcoes.length;cont++){
+            for(cont=numOpcoes.length-1;cont>=0;cont--){
                 opcao = numOpcoes[cont]
-                if (opcao.selected) {
-                    if (cont<numOpcoes.length-1){
-                        valor = opcao.value
-                        texto = opcao.text
-                        newPos = cont+1
-                        intermediario = document.createElement("option")
-                        intermediario = numOpcoes[cont]
-                        numOpcoes[newPos].after(intermediario)
-                    }
+                newPos = cont+1
+                if (cont<numOpcoes.length-1 && opcao.selected && numOpcoes[newPos].selected==false){
+                    valor = opcao.value
+                    texto = opcao.text
+                    intermediario = document.createElement("option")
+                    intermediario.innerHTML = opcao.innerHTML
+                    intermediario.value = opcao.value
+                    intermediario.selected = true
+                    numOpcoes[newPos].after(intermediario)
+                    opcao.remove()
+                    numOpcoes = listaDireita.querySelectorAll("option")
                 }
             }
             break;
