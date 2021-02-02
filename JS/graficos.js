@@ -27,90 +27,160 @@ var volumeDeChamadas = new Chart(document.getElementById('volumeDeChamadas').get
 
 // --------------------------------------------------------------------------
 
-const direita = document.getElementById("direita")
-const esquerda = document.getElementById("esquerda")
-const cima = document.getElementById("cima")
-const baixo = document.getElementById("baixo")
+// const direita = document.getElementById("direita")
+// const esquerda = document.getElementById("esquerda")
+// const cima = document.getElementById("cima")
+// const baixo = document.getElementById("baixo")
 const caixaEsquerda = document.getElementById("caixa-esquerda")
 const caixaDireita = document.getElementById("caixa-direita")
-const botoes = document.getElementById("botoes")
+// const botoes = document.getElementById("botoes")
 
-botoes.addEventListener("click",(e) => {
-    const btnClicado = e.target.getAttribute("id")
-    const listaEsquerda = document.getElementById("select-from")
-    const listaDireita = document.getElementById("select-to")
-    let numOpcoes
+const arrastaveis = document.querySelectorAll(".opcao")
+const caixas = document.querySelectorAll(".caixa")
 
-    switch (btnClicado) {
-        case "direita":
-            numOpcoes = listaEsquerda.querySelectorAll("option")
-            for(cont=0;cont<numOpcoes.length;cont++) {
-                let opcao = numOpcoes[cont]
-                if (opcao.selected) {
-                    let conteudo = listaDireita.innerHTML
-                    let valor = opcao.value
-                    let texto = opcao.text
-                    listaDireita.innerHTML = conteudo + "<option value='"+valor+"'>"+texto+"</option>"
-                    opcao.remove()
-                }
-            }
-            break;
-        case "esquerda":
-            numOpcoes = listaDireita.querySelectorAll("option")
-            for(cont=0;cont<numOpcoes.length;cont++) {
-                let opcao = numOpcoes[cont]
-                if (opcao.selected) {
-                    let conteudo = listaEsquerda.innerHTML
-                    let valor = opcao.value
-                    let texto = opcao.text
-                    listaEsquerda.innerHTML = conteudo + "<option value='"+valor+"'>"+texto+"</option>"
-                    opcao.remove()
-                }
-            }
-            break;
-        case "cima":
-            numOpcoes = listaDireita.querySelectorAll("option")
-            for(cont=0;cont<numOpcoes.length;cont++){
-                opcao = numOpcoes[cont]
-                newPos = cont-1
-                if (opcao.selected && cont>0 && numOpcoes[newPos].selected==false) {
-                    valor = opcao.value
-                    texto = opcao.text
-                    intermediario = document.createElement("option")
-                    intermediario.innerHTML = opcao.innerHTML
-                    intermediario.value = opcao.value
-                    intermediario.selected = true
-                    numOpcoes[newPos].before(intermediario)
-                    opcao.remove()
-                    numOpcoes = listaDireita.querySelectorAll("option")
-                }
-            }
-            break;
-        case "baixo":
-            numOpcoes = listaDireita.querySelectorAll("option")
-            for(cont=numOpcoes.length-1;cont>=0;cont--){
-                opcao = numOpcoes[cont]
-                newPos = cont+1
-                if (cont<numOpcoes.length-1 && opcao.selected && numOpcoes[newPos].selected==false){
-                    valor = opcao.value
-                    texto = opcao.text
-                    intermediario = document.createElement("option")
-                    intermediario.innerHTML = opcao.innerHTML
-                    intermediario.value = opcao.value
-                    intermediario.selected = true
-                    numOpcoes[newPos].after(intermediario)
-                    opcao.remove()
-                    numOpcoes = listaDireita.querySelectorAll("option")
-                }
-            }
-            break;
-        default:
+arrastaveis.forEach(arrastavel => {
+    arrastavel.addEventListener('dragstart', () => {
+        arrastavel.classList.add('arrastando')
+    })
+    arrastavel.addEventListener('dragend', () => {
+        arrastavel.classList.remove('arrastando')
+        // console.log(e)
+    })
+})
 
-            break;
+caixas.forEach(caixa => {
+    caixa.addEventListener('dragover', (e) => {
+        // console.log(caixa)
+        
+        e.preventDefault()
+        const afterElement = closest(caixa,e.clientY)
+        const arrastavel = document.querySelector('.arrastando')
+
+        if (afterElement == null) {
+            caixa.appendChild(arrastavel)
+            // console.log("null")
+        } else {
+            caixa.insertBefore(arrastavel, afterElement)
+            // console.log("não null")
+        }
+
+    })
+})
+
+function closest(caixa,y){
+
+    const elementos = caixa.querySelectorAll('.opcao:not(.arrastando)')
+    final = Number.POSITIVE_INFINITY
+    // console.log(caixa)
+    // console.log(elementos)
+
+    elementos.forEach(elemento => {
+        const intermediario = elemento.getBoundingClientRect()
+        const posicaoElemento = intermediario.top + intermediario.height/2
+        const resultado = posicaoElemento - y
+
+        if (resultado >= 0 && resultado < final ) {
+            caixaAnterior = caixa
+            final = resultado
+            // console.log(elemento.innerHTML +": "+ resultado)
+            // console.log(elemento)
+            teste = elemento
+            return
+
+        }else{
+            if (resultado < final) {
+                teste = null
+                return
+            }
+        }
+
+    })
+    if(caixaAnterior != caixa){
+        teste = null
     }
+    // console.log(teste)
+    return teste
+}
+
+// botoes.addEventListener("click",(e) => {
+//     const btnClicado = e.target.getAttribute("id")
+//     const listaEsquerda = document.getElementById("select-from")
+//     const listaDireita = document.getElementById("select-to")
+    
+//     let numOpcoes
+
+//     switch (btnClicado) {
+//         case "direita":
+//             numOpcoes = listaEsquerda.querySelectorAll("option")
+//             for(cont=0;cont<numOpcoes.length;cont++) {
+//                 let opcao = numOpcoes[cont]
+//                 if (opcao.selected) {
+//                     let conteudo = listaDireita.innerHTML
+//                     let valor = opcao.value
+//                     let texto = opcao.text
+//                     listaDireita.innerHTML = conteudo + "<option class='opcao' value='"+valor+"'>"+texto+"</option>"
+//                     opcao.remove()
+//                 }
+//             }
+//             break;
+//         case "esquerda":
+//             numOpcoes = listaDireita.querySelectorAll("option")
+//             for(cont=0;cont<numOpcoes.length;cont++) {
+//                 let opcao = numOpcoes[cont]
+//                 if (opcao.selected) {
+//                     let conteudo = listaEsquerda.innerHTML
+//                     let valor = opcao.value
+//                     let texto = opcao.text
+//                     listaEsquerda.innerHTML = conteudo + "<option class='opcao' value='"+valor+"'>"+texto+"</option>"
+//                     opcao.remove()
+//                 }
+//             }
+//             break;
+//         case "cima":
+//             numOpcoes = listaDireita.querySelectorAll("option")
+//             for(cont=0;cont<numOpcoes.length;cont++){
+//                 opcao = numOpcoes[cont]
+//                 newPos = cont-1
+//                 if (opcao.selected && cont>0 && numOpcoes[newPos].selected==false) {
+//                     valor = opcao.value
+//                     texto = opcao.text
+//                     intermediario = document.createElement("option")
+//                     intermediario.innerHTML = opcao.innerHTML
+//                     intermediario.value = opcao.value
+//                     intermediario.selected = true
+//                     intermediario.classList.add("opcao")
+//                     numOpcoes[newPos].before(intermediario)
+//                     opcao.remove()
+//                     numOpcoes = listaDireita.querySelectorAll("option")
+//                 }
+//             }
+//             break;
+//         case "baixo":
+//             numOpcoes = listaDireita.querySelectorAll("option")
+//             for(cont=numOpcoes.length-1;cont>=0;cont--){
+//                 opcao = numOpcoes[cont]
+//                 newPos = cont+1
+//                 if (cont<numOpcoes.length-1 && opcao.selected && numOpcoes[newPos].selected==false){
+//                     valor = opcao.value
+//                     texto = opcao.text
+//                     intermediario = document.createElement("option")
+//                     intermediario.innerHTML = opcao.innerHTML
+//                     intermediario.value = opcao.value
+//                     intermediario.selected = true
+//                     intermediario.classList.add("opcao")
+//                     numOpcoes[newPos].after(intermediario)
+//                     opcao.remove()
+//                     numOpcoes = listaDireita.querySelectorAll("option")
+//                 }
+//             }
+//             break;
+//         default:
+
+//             break;
+//     }
 
     
-})
+// })
 
 // --------------------------------------------------------------------------
 

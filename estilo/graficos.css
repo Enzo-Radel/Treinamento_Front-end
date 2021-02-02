@@ -1,0 +1,40 @@
+.trocar-listas{
+    background-color: white;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+.caixa{
+    background-color: #c2c0c0;
+    border: 2px solid black;
+    width: 30%;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    margin: 20px 80px;
+    height: 475px;
+}
+/* .botoes{
+    margin: 10px;
+    width: 150px;
+}
+.botao{
+    margin: 5px;
+} */
+.opcao{
+    border: 2px solid black;
+    margin: 5px;
+    padding: 10px;
+    background-color: white;
+}
+
+.arrastando{
+    /* background-color: rgba(165, 165, 165, 0.4); */
+    opacity: 0.6;
+}
+
+/* .separador{
+    height: 3px;
+    background-color: gray;
+    margin: 15px 0;
+} */
