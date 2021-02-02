@@ -1,7 +1,9 @@
 .trocar-listas{
     background-color: white;
     border: 3px solid black;
-    padding: 10px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .caixa{
@@ -10,17 +12,17 @@
     width: 30%;
     text-align: center;
     font-size: 16px;
-    display: inline-block;
-    margin: 20px 80px;
-    height: 475px;
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px 80px; */
+    min-width: min-content;
 }
-/* .botoes{
-    margin: 10px;
-    width: 150px;
+
+.mensagem{
+    align-self: center;
+    /* width: 100px; */
 }
-.botao{
-    margin: 5px;
-} */
+
 .opcao{
     border: 2px solid black;
     margin: 5px;
@@ -29,12 +31,5 @@
 }
 
 .arrastando{
-    /* background-color: rgba(165, 165, 165, 0.4); */
     opacity: 0.6;
 }
-
-/* .separador{
-    height: 3px;
-    background-color: gray;
-    margin: 15px 0;
-} */
